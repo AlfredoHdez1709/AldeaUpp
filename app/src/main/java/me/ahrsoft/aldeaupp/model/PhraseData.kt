@@ -6,8 +6,8 @@ class PhraseData {
         return phrases[position]
     }
     private val phrases = listOf(
-        Phrase(text = "Hola 1", author = "Autor 1"),
-        Phrase(text = "Hola 2", author = "Autor 2"),
-        Phrase(text = "Hola 3", author = "Autor 3")
+        Phrase(text = "Hola 1"),
+        Phrase(text = "Hola 2"),
+        Phrase(text = "Hola 3")
     )
 }
