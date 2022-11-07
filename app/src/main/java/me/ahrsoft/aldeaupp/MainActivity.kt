@@ -3,9 +3,8 @@ package me.ahrsoft.aldeaupp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.core.view.isVisible
 import me.ahrsoft.aldeaupp.databinding.ActivityMainBinding
-import me.ahrsoft.aldeaupp.model.PhraseData
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
+        model.isLoading.observe(this){
+            controllerUI(it)
+        }
         model.phrase.observe(this){ phrase ->
             phrase?.let {
                 with(binding){
@@ -30,6 +32,13 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private fun controllerUI(isLoading : Boolean){
+        with(binding){
+            progressBar.isVisible = isLoading
+            textPhrase.isVisible = !isLoading
         }
     }
 }

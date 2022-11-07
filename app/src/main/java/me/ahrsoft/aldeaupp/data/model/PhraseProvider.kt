@@ -1,6 +1,6 @@
-package me.ahrsoft.aldeaupp.model
+package me.ahrsoft.aldeaupp.data.model
 
-class PhraseData {
+class PhraseProvider {
     fun random() : Phrase {
         val position = (0..9).random()
         return phrases[position]
